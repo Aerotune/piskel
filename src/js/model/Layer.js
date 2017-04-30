@@ -84,6 +84,15 @@
     this.frames.splice(toIndex, 0, frame);
   };
 
+  ns.Layer.prototype.setDelayFrames = function (index, delayFrames) {
+    var frame = this.frames[index];
+    if (frame) {
+      frame.setDelayFrames(delayFrames);
+    } else {
+      console.error('Invalid index in setDelayFrames : %s (size : %s)', index, this.size());
+    }
+  };
+
   ns.Layer.prototype.swapFramesAt = function (fromIndex, toIndex) {
     var fromFrame = this.frames[fromIndex];
     var toFrame = this.frames[toIndex];

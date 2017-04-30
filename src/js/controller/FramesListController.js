@@ -5,7 +5,8 @@
     SELECT : 'select',
     CLONE : 'clone',
     DELETE : 'delete',
-    NEW_FRAME : 'newframe'
+    NEW_FRAME : 'newframe',
+    SET_DELAY_FRAMES : 'setdelayframes'
   };
 
   ns.FramesListController = function (piskelController, container) {
@@ -114,6 +115,8 @@
       this.tiles.push(newtile);
       this.previewList.insertBefore(newtile, this.addFrameTile);
       this.updateScrollerOverflows();
+    } else if (action === ACTION.SET_DELAY_FRAMES) {
+      this.piskelController.setDelayFrames(index, 10)
     }
 
     this.flagForRedraw_();
@@ -280,10 +283,15 @@
     deleteButton.className = 'tile-overlay delete-frame-action icon-frame-recyclebin-white';
     previewTileRoot.appendChild(deleteButton);
 
-    // Add 'dragndrop handle'.
-    var dndHandle = document.createElement('div');
-    dndHandle.className = 'tile-overlay dnd-action icon-frame-dragndrop-white' ;
-    previewTileRoot.appendChild(dndHandle);
+    // Add a textbox where you can set the amount of frames one frame is played back.
+    var frameDelayButton = document.createElement('input');
+    frameDelayButton.setAttribute('rel', 'tooltip');
+    frameDelayButton.setAttribute('data-placement', 'right');
+    frameDelayButton.setAttribute('title', 'Set frame delay');
+    frameDelayButton.setAttribute('data-tile-number', tileNumber);
+    frameDelayButton.setAttribute('data-tile-action', ACTION.SET_DELAY_FRAMES);
+    frameDelayButton.className = 'tile-overlay set-frame-delay-action';
+    previewTileRoot.appendChild(frameDelayButton);
 
     // Add tile count
     var tileCount = document.createElement('div');

@@ -167,6 +167,14 @@
     }
   };
 
+  ns.PiskelController.prototype.setDelayFrames = function (index, delayFrames) {
+    console.log("How do I find the frame delay input textfield (from the frame list) here?");
+    console.log(this);
+    this.getLayers().forEach(function (l) {
+      l.setDelayFrames(index, delayFrames);
+    });
+  };
+
   ns.PiskelController.prototype.selectNextFrame = function () {
     var nextIndex = this.currentFrameIndex + 1;
     if (nextIndex < this.getFrameCount()) {

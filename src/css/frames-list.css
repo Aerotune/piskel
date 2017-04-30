@@ -99,6 +99,23 @@
   border: #999 3px solid;
 }
 
+.set-frame-delay-action {
+  overflow: hidden;
+  width: 96px;
+  height: 96px;
+
+  border: #888 solid 3px;
+  border-radius: 4px;
+
+  bottom: 0;
+  left: 0;
+
+  color: #FFF;
+  background-color: #222;
+  font-size: 13px;
+
+}
+
 .tile-view {
   position : relative;
 }
