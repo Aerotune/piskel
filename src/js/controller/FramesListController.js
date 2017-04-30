@@ -116,7 +116,8 @@
       this.previewList.insertBefore(newtile, this.addFrameTile);
       this.updateScrollerOverflows();
     } else if (action === ACTION.SET_DELAY_FRAMES) {
-      this.piskelController.setDelayFrames(index, 10)
+      var delayFrames = 10 /* Get delay frames from input textfield */
+      this.piskelController.setDelayFrames(index, delayFrames)
     }
 
     this.flagForRedraw_();
