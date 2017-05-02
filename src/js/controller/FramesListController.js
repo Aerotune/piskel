@@ -291,7 +291,7 @@
     frameDelayButton.setAttribute('title', 'Set frame delay');
     frameDelayButton.setAttribute('data-tile-number', tileNumber);
     frameDelayButton.setAttribute('data-tile-action', ACTION.SET_DELAY_FRAMES);
-    frameDelayButton.className = 'tile-overlay set-frame-delay-action';
+    frameDelayButton.className = 'tile-overlay set-delay-frames-action';
     previewTileRoot.appendChild(frameDelayButton);
 
     // Add tile count

@@ -99,7 +99,7 @@
   border: #999 3px solid;
 }
 
-.set-frame-delay-action {
+.set-delay-frames-action {
   overflow: hidden;
   width: 96px;
   height: 96px;
@@ -113,7 +113,6 @@
   color: #FFF;
   background-color: #222;
   font-size: 13px;
-
 }
 
 .tile-view {
