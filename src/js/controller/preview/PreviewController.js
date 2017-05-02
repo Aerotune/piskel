@@ -264,7 +264,6 @@
   ns.PreviewController.prototype.render = function (delta) {
     this.elapsedTime += delta;
     var renderedIndex = this.getNextRenderedIndex_(delta);
-    console.log(renderedIndex);
     var index = this.piskelController.indexFromRenderedIndex(renderedIndex);
     if (this.shouldRender_() || this.currentIndex != index) {
       this.currentIndex = index;

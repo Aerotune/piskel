@@ -127,7 +127,7 @@
       }
       buffer += delayFrames;
     }
-    console.log(index);
+
     return index;
   };
 
@@ -194,8 +194,6 @@
   };
 
   ns.PiskelController.prototype.setDelayFrames = function (index, delayFrames) {
-    console.log("How do I find the frame delay input textfield (from the frame list) here?");
-    console.log(this);
     this.getLayers().forEach(function (l) {
       l.setDelayFrames(index, delayFrames);
     });

@@ -53,6 +53,17 @@
 
   ns.FramesListController.prototype.render = function () {
     if (this.redrawFlag) {
+
+      // Where do I update the delay frames???
+      // This doesn't belong here - Aerotune
+      var piskelController = this.piskelController;
+      $('.set-delay-frames-action').each(function(){
+        var index = $(this).attr('data-tile-number');
+        var delayFrames = $(this).attr('value');
+        console.log(delayFrames);
+        piskelController.setDelayFrames(index, delayFrames);
+      });
+
       if (this.regenerateDomFlag) {
         this.tiles = [];
         this.addFrameTile = null;
@@ -116,8 +127,7 @@
       this.previewList.insertBefore(newtile, this.addFrameTile);
       this.updateScrollerOverflows();
     } else if (action === ACTION.SET_DELAY_FRAMES) {
-      var delayFrames = 10 /* Get delay frames from input textfield */
-      this.piskelController.setDelayFrames(index, delayFrames)
+
     }
 
     this.flagForRedraw_();
