@@ -285,15 +285,15 @@
     previewTileRoot.appendChild(deleteButton);
 
     // Add a textbox where you can set the amount of frames one frame is played back.
-    var frameDelayButton = document.createElement('input');
-    frameDelayButton.setAttribute('rel', 'tooltip');
-    frameDelayButton.setAttribute('data-placement', 'right');
-    frameDelayButton.setAttribute('title', 'Frame delay (any whole number)');
-    frameDelayButton.setAttribute('value', '1');
-    frameDelayButton.setAttribute('data-tile-number', tileNumber);
-    frameDelayButton.setAttribute('data-tile-action', ACTION.SET_DELAY_FRAMES);
-    frameDelayButton.className = 'tile-overlay set-delay-frames-action';
-    previewTileRoot.appendChild(frameDelayButton);
+    var delayFramesInput = document.createElement('input');
+    delayFramesInput.setAttribute('rel', 'tooltip');
+    delayFramesInput.setAttribute('data-placement', 'right');
+    delayFramesInput.setAttribute('title', 'Frame delay (any whole number)');
+    delayFramesInput.setAttribute('value', currentFrame.delayFrames);
+    delayFramesInput.setAttribute('data-tile-number', tileNumber);
+    delayFramesInput.setAttribute('data-tile-action', ACTION.SET_DELAY_FRAMES);
+    delayFramesInput.className = 'tile-overlay set-delay-frames-action';
+    previewTileRoot.appendChild(delayFramesInput);
 
     // Add tile count
     var tileCount = document.createElement('div');
