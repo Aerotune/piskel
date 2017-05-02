@@ -105,6 +105,32 @@
     return !!this.getCurrentLayer().getFrameAt(index);
   };
 
+  ns.PiskelController.prototype.hasRenderedFrameAt = function (renderedIndex) {
+    var index = this.indexFromRenderedIndex(renderedIndex);
+    return this.hasFrameAt(index);
+  };
+
+  ns.PiskelController.prototype.indexFromRenderedIndex = function (renderedIndex) {
+    var buffer = 0;
+    var index = null;
+    var layer = this.getCurrentLayer();
+    var frames = layer.getFrames();
+
+    for(i = 0; i < frames.length; i++) {
+      var delayFrames = parseInt(frames[i].delayFrames);
+      if (delayFrames == null) {
+        delayFrames = 1;
+      }
+      if ((buffer-1 <= renderedIndex) && ((buffer + delayFrames) >= renderedIndex)) {
+        index = i;
+        break;
+      }
+      buffer += delayFrames;
+    }
+    console.log(index);
+    return index;
+  };
+
   ns.PiskelController.prototype.addFrame = function () {
     this.addFrameAt(this.getFrameCount());
   };

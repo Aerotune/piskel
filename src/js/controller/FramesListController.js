@@ -288,7 +288,8 @@
     var frameDelayButton = document.createElement('input');
     frameDelayButton.setAttribute('rel', 'tooltip');
     frameDelayButton.setAttribute('data-placement', 'right');
-    frameDelayButton.setAttribute('title', 'Set frame delay');
+    frameDelayButton.setAttribute('title', 'Frame delay (any whole number)');
+    frameDelayButton.setAttribute('value', '1');
     frameDelayButton.setAttribute('data-tile-number', tileNumber);
     frameDelayButton.setAttribute('data-tile-action', ACTION.SET_DELAY_FRAMES);
     frameDelayButton.className = 'tile-overlay set-delay-frames-action';

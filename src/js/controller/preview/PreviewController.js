@@ -263,7 +263,9 @@
 
   ns.PreviewController.prototype.render = function (delta) {
     this.elapsedTime += delta;
-    var index = this.getNextIndex_(delta);
+    var renderedIndex = this.getNextRenderedIndex_(delta);
+    console.log(renderedIndex);
+    var index = this.piskelController.indexFromRenderedIndex(renderedIndex);
     if (this.shouldRender_() || this.currentIndex != index) {
       this.currentIndex = index;
       var frame = pskl.utils.LayerUtils.mergeFrameAt(this.piskelController.getLayers(), index);
@@ -275,12 +277,12 @@
     }
   };
 
-  ns.PreviewController.prototype.getNextIndex_ = function (delta) {
+  ns.PreviewController.prototype.getNextRenderedIndex_ = function (delta) {
     if (this.fps === 0) {
       return this.piskelController.getCurrentFrameIndex();
     } else {
       var index = Math.floor(this.elapsedTime / (1000 / this.fps));
-      if (!this.piskelController.hasFrameAt(index)) {
+      if (!this.piskelController.hasRenderedFrameAt(index)) {
         this.elapsedTime = 0;
         index = 0;
       }
