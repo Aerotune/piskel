@@ -59,7 +59,7 @@
       var piskelController = this.piskelController;
       $('.set-delay-frames-action').each(function(){
         var index = $(this).attr('data-tile-number');
-        var delayFrames = $(this).attr('value');
+        var delayFrames = parseInt($(this).attr('value')) || 1;
         console.log(delayFrames);
         piskelController.setDelayFrames(index, delayFrames);
       });
